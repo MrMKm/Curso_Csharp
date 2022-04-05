@@ -4,20 +4,7 @@ using System.Linq;
 
 namespace TestProject_1
 {
-    public class Student
-    {
-        public int ID { get; set; }
-
-        public string Name { get; set; }
-
-        public Student(int id, string name)
-        {
-            ID = id;
-            Name = name;
-        }
-    }
-
-    class TestingCodes
+    class TestingCodesDay1
     {
         static Student GetByName(string name, List<Student> students)
         {
@@ -115,7 +102,10 @@ namespace TestProject_1
 
             Console.WriteLine(bribes);
         }
+    }
 
+    class RunMain
+    {
         static void Main(string[] args)
         {
 
