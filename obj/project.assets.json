@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MyStuff\\Codeando\\C#\\Integon\\Training\\TestProject_1\\TestProject_1.csproj",
+      "projectUniqueName": "D:\\MyStuff\\Codeando\\C#\\Integon\\Training\\REPO_CSHARP\\TestProject_1.csproj",
       "projectName": "TestProject_1",
-      "projectPath": "D:\\MyStuff\\Codeando\\C#\\Integon\\Training\\TestProject_1\\TestProject_1.csproj",
+      "projectPath": "D:\\MyStuff\\Codeando\\C#\\Integon\\Training\\REPO_CSHARP\\TestProject_1.csproj",
       "packagesPath": "C:\\Users\\MrMKm\\.nuget\\packages\\",
-      "outputPath": "D:\\MyStuff\\Codeando\\C#\\Integon\\Training\\TestProject_1\\obj\\",
+      "outputPath": "D:\\MyStuff\\Codeando\\C#\\Integon\\Training\\REPO_CSHARP\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
