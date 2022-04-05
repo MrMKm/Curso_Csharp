@@ -11,7 +11,7 @@ namespace FilterChallenge
         public string CompanyName { get; set; } 
         public string CompanyAdmin { get; set; }
         public DateTime Antiquity { get; set; }
-        public bool Active { get; set; } = false;
+        public bool Active { get; set; } = true;
 
         public static bool GetByID(Company company)
         {
@@ -182,8 +182,6 @@ namespace FilterChallenge
                 else
                     Console.WriteLine("Companies don't found");
             }
-
-
         }
 
         static void Main(string[] args)
