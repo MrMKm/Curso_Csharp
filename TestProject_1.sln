@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PredicatesWithClasses", "Pr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Predicates", "Predicates\Predicates.csproj", "{B1949C97-5A62-44FF-8137-8454EC3E69B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilterChallenge", "FilterChallenge\FilterChallenge.csproj", "{719C83D8-E0B2-4D28-8FE7-5BA7DC37D462}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B1949C97-5A62-44FF-8137-8454EC3E69B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1949C97-5A62-44FF-8137-8454EC3E69B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1949C97-5A62-44FF-8137-8454EC3E69B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{719C83D8-E0B2-4D28-8FE7-5BA7DC37D462}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{719C83D8-E0B2-4D28-8FE7-5BA7DC37D462}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{719C83D8-E0B2-4D28-8FE7-5BA7DC37D462}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{719C83D8-E0B2-4D28-8FE7-5BA7DC37D462}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
