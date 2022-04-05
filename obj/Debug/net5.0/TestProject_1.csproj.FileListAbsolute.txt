@@ -1,0 +1,16 @@
+D:\MyStuff\Codeando\C#\Integon\Training\TestProject_1\bin\Debug\net5.0\TestProject_1.exe
+D:\MyStuff\Codeando\C#\Integon\Training\TestProject_1\bin\Debug\net5.0\TestProject_1.deps.json
+D:\MyStuff\Codeando\C#\Integon\Training\TestProject_1\bin\Debug\net5.0\TestProject_1.runtimeconfig.json
+D:\MyStuff\Codeando\C#\Integon\Training\TestProject_1\bin\Debug\net5.0\TestProject_1.runtimeconfig.dev.json
+D:\MyStuff\Codeando\C#\Integon\Training\TestProject_1\bin\Debug\net5.0\TestProject_1.dll
+D:\MyStuff\Codeando\C#\Integon\Training\TestProject_1\bin\Debug\net5.0\ref\TestProject_1.dll
+D:\MyStuff\Codeando\C#\Integon\Training\TestProject_1\bin\Debug\net5.0\TestProject_1.pdb
+D:\MyStuff\Codeando\C#\Integon\Training\TestProject_1\obj\Debug\net5.0\TestProject_1.csproj.AssemblyReference.cache
+D:\MyStuff\Codeando\C#\Integon\Training\TestProject_1\obj\Debug\net5.0\TestProject_1.GeneratedMSBuildEditorConfig.editorconfig
+D:\MyStuff\Codeando\C#\Integon\Training\TestProject_1\obj\Debug\net5.0\TestProject_1.AssemblyInfoInputs.cache
+D:\MyStuff\Codeando\C#\Integon\Training\TestProject_1\obj\Debug\net5.0\TestProject_1.AssemblyInfo.cs
+D:\MyStuff\Codeando\C#\Integon\Training\TestProject_1\obj\Debug\net5.0\TestProject_1.csproj.CoreCompileInputs.cache
+D:\MyStuff\Codeando\C#\Integon\Training\TestProject_1\obj\Debug\net5.0\TestProject_1.dll
+D:\MyStuff\Codeando\C#\Integon\Training\TestProject_1\obj\Debug\net5.0\ref\TestProject_1.dll
+D:\MyStuff\Codeando\C#\Integon\Training\TestProject_1\obj\Debug\net5.0\TestProject_1.pdb
+D:\MyStuff\Codeando\C#\Integon\Training\TestProject_1\obj\Debug\net5.0\TestProject_1.genruntimeconfig.cache
