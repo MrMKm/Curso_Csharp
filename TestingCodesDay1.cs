@@ -102,10 +102,7 @@ namespace TestProject_1
 
             Console.WriteLine(bribes);
         }
-    }
 
-    class RunMain
-    {
         static void Main(string[] args)
         {
 
