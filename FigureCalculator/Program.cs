@@ -33,7 +33,7 @@ namespace FigureCalculator
                     return Tuple.Create(p_Triangle(x, y), a_Triangle(x, y));
 
                 case 4:
-                    return Tuple.Create(p_Square(x), a_Square(x));
+                    return Tuple.Create(p_Circle(x), a_Circle(x));
             }
 
             return Tuple.Create(double.NaN, double.NaN);
