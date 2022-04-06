@@ -15,7 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LambdaExpressions", "Lambda
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureCalculator", "FigureCalculator\FigureCalculator.csproj", "{45106AC8-4CD3-4B38-846C-F540D8338133}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegularExpressions", "RegularExpressions\RegularExpressions.csproj", "{E370C85E-E69E-499C-95D1-CA41FBD13754}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegularExpressions", "RegularExpressions\RegularExpressions.csproj", "{E370C85E-E69E-499C-95D1-CA41FBD13754}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncProgramming", "AsyncProgramming\AsyncProgramming.csproj", "{656672A8-69C8-4E32-8DBB-AE6821FD87B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReminderChallenge", "ReminderChallenge\ReminderChallenge.csproj", "{0A1CB561-793F-41C9-A67F-1D60FB159F09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelismChallenge", "ParallelismChallenge\ParallelismChallenge.csproj", "{87D45BD9-2D2B-4F97-BD5C-3FBC29B5C259}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +57,18 @@ Global
 		{E370C85E-E69E-499C-95D1-CA41FBD13754}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E370C85E-E69E-499C-95D1-CA41FBD13754}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E370C85E-E69E-499C-95D1-CA41FBD13754}.Release|Any CPU.Build.0 = Release|Any CPU
+		{656672A8-69C8-4E32-8DBB-AE6821FD87B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{656672A8-69C8-4E32-8DBB-AE6821FD87B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{656672A8-69C8-4E32-8DBB-AE6821FD87B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{656672A8-69C8-4E32-8DBB-AE6821FD87B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A1CB561-793F-41C9-A67F-1D60FB159F09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A1CB561-793F-41C9-A67F-1D60FB159F09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A1CB561-793F-41C9-A67F-1D60FB159F09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A1CB561-793F-41C9-A67F-1D60FB159F09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87D45BD9-2D2B-4F97-BD5C-3FBC29B5C259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87D45BD9-2D2B-4F97-BD5C-3FBC29B5C259}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87D45BD9-2D2B-4F97-BD5C-3FBC29B5C259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87D45BD9-2D2B-4F97-BD5C-3FBC29B5C259}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
