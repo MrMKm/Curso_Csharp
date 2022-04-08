@@ -14,7 +14,7 @@ namespace EmployeeControl
         public Supervisor(string Name, DateTime EntryDate, string Password) : base(Name, EntryDate, Password) { }
         public Supervisor(string Name) : base(Name) { }
 
-        public void ValidateHours(List<Tuple<int, string>> employeeHours, int employeeID)
+        public void ValidateHours(List<Activity> employeeHours, int employeeID)
         {
             var employee = EmployeeList.Find(e => e.ID.Equals(employeeID));
 
@@ -25,7 +25,7 @@ namespace EmployeeControl
                     employee.Hours.Add(hours);
                 }
 
-                employee.HoursRegistred.Clear();
+                employee.ActivitiesRegistered.Clear();
             }
         }
 

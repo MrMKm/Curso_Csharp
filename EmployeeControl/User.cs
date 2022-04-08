@@ -13,7 +13,7 @@ namespace EmployeeControl
         public string Password { get; set; }
         public DateTime EntryDate { get; set; }
 
-        public List<Tuple<int, string>> Hours = new List<Tuple<int, string>>();
+        public List<Activity> Hours = new List<Activity>();
 
         private static int _IDSeed = 1;
 
@@ -31,18 +31,22 @@ namespace EmployeeControl
             _IDSeed++;
         }
 
-        public string PrintHours()
+        public string PrintActivities()
         {
             var sb = new StringBuilder();
 
-            foreach(var h in Hours)
+            foreach (var activity in Hours)
             {
-                sb.AppendLine($"Hours: {h.Item1}");
-                sb.AppendLine($"Description: {h.Item2} \n\n");
+                sb.AppendLine($"Hours: {activity.Hours}");
+                sb.AppendLine($"Description: {activity.Description}");
+                sb.AppendLine($"Date: {activity.Date.Date.ToShortDateString()} \n\n");
             }
 
             if (!Hours.Any())
-                Console.WriteLine("Hours not found");
+                Console.WriteLine("Activities not found");
+
+            Console.WriteLine("\nPress any key to continue...");
+            Console.ReadLine();
 
             return sb.ToString();
         }

@@ -69,6 +69,7 @@ namespace EmployeeControl
             int hours = 0;
             string description = "";
             bool exit = false;
+            DateTime date = new DateTime();
 
             do
             {
@@ -96,23 +97,26 @@ namespace EmployeeControl
                         hours = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine("Description: ");
                         description = Console.ReadLine();
+                        Console.WriteLine("Date:\nFormat(dd/mm/yyyy)");
+                        date = DateTime.ParseExact(Console.ReadLine(), "d", null);
 
-                        Users.employee.RegisterHours(Tuple.Create(hours, description));
+                        Users.employee.RegisterHours(new Activity(hours, description, date));
                         break;
 
                     case 2:
-                        Console.WriteLine(Users.employee.PrintHours());
+                        Console.WriteLine(Users.employee.PrintActivities());
                         Console.ReadLine();
                         break;
 
                     case 3:
-                        Console.WriteLine(Users.employee.PrintRegisteredHours());
+                        Console.WriteLine(Users.employee.PrintRegisteredActivities());
                         Console.ReadLine();
                         break;
 
                     case 4:
                         Console.WriteLine("Hours sended to Supervisor");
-                        await Task.Delay(2000);
+                        Console.WriteLine("\nPress any key to continue...");
+                        Console.ReadLine();
                         break;
 
                     case 5:
@@ -121,7 +125,8 @@ namespace EmployeeControl
 
                     default:
                         Console.WriteLine("Invalid Option, try again...");
-                        await Task.Delay(2000);
+                        Console.WriteLine("\nPress any key to continue...");
+                        Console.ReadLine();
                         break;
                 }
             } while (!exit);
@@ -158,17 +163,17 @@ namespace EmployeeControl
                         if (Users.employee != null)
                         {
                             Console.Clear();
-                            Console.WriteLine(Users.employee.PrintRegisteredHours());
+                            Console.WriteLine(Users.employee.PrintRegisteredActivities());
                             Console.WriteLine("\nPress any key to continue...");
                             Console.ReadLine();
 
-                            if (Users.employee.HoursRegistred.Any())
+                            if (Users.employee.ActivitiesRegistered.Any())
                             {
                                 Console.WriteLine("Validate hours?");
 
                                 if (Console.ReadLine() == "yes")
                                 {
-                                    Users.supervisor.ValidateHours(Users.employee.HoursRegistred, Users.employee.ID);
+                                    Users.supervisor.ValidateHours(Users.employee.ActivitiesRegistered, Users.employee.ID);
                                     Console.WriteLine("Hours validated");
                                     Console.WriteLine("\n\n");
                                     Console.WriteLine("\nPress any key to continue...");
@@ -291,6 +296,8 @@ namespace EmployeeControl
 
                     default:
                         Console.WriteLine("Invalid Option, try again...");
+                        Console.WriteLine("\nPress any key to continue...");
+                        Console.ReadLine();
                         break;
                 }
             } while (!exit);

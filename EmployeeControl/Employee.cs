@@ -8,29 +8,33 @@ namespace EmployeeControl
 {
     public class Employee : User
     {
-        public List<Tuple<int, string>> HoursRegistred = new List<Tuple<int, string>>();
+        public List<Activity> ActivitiesRegistered = new List<Activity>();
 
         public Employee() { }
         public Employee(string Name, DateTime EntryDate, string Password) : base(Name, EntryDate, Password) { }
         public Employee(string Name) : base(Name) { }
 
-        public void RegisterHours(Tuple<int, string> hours)
+        public void RegisterHours(Activity hours)
         {
-            HoursRegistred.Add(hours);
+            ActivitiesRegistered.Add(hours);
         }
 
-        public string PrintRegisteredHours()
+        public string PrintRegisteredActivities()
         {
             var sb = new StringBuilder();
 
-            foreach (var h in HoursRegistred)
+            foreach (var activity in ActivitiesRegistered)
             {
-                sb.AppendLine($"Hours: {h.Item1}");
-                sb.AppendLine($"Description: {h.Item2} \n\n");
+                sb.AppendLine($"Hours: {activity.Hours}");
+                sb.AppendLine($"Description: {activity.Description}");
+                sb.AppendLine($"Date: {activity.Date.Date.ToShortDateString()} \n\n");
             }
 
-            if (!HoursRegistred.Any())
-                Console.WriteLine("Hours not found");
+            if (!ActivitiesRegistered.Any())
+                Console.WriteLine("Activities not found");
+
+            Console.WriteLine("\nPress any key to continue...");
+            Console.ReadLine();
 
             return sb.ToString();
         }
