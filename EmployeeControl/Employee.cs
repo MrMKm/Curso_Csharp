@@ -18,5 +18,21 @@ namespace EmployeeControl
         {
             HoursRegistred.Add(hours);
         }
+
+        public string PrintRegisteredHours()
+        {
+            var sb = new StringBuilder();
+
+            foreach (var h in HoursRegistred)
+            {
+                sb.AppendLine($"Hours: {h.Item1}");
+                sb.AppendLine($"Description: {h.Item2} \n\n");
+            }
+
+            if (!HoursRegistred.Any())
+                Console.WriteLine("Hours not found");
+
+            return sb.ToString();
+        }
     }
 }

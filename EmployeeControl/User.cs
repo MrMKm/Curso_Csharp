@@ -41,6 +41,9 @@ namespace EmployeeControl
                 sb.AppendLine($"Description: {h.Item2} \n\n");
             }
 
+            if (!Hours.Any())
+                Console.WriteLine("Hours not found");
+
             return sb.ToString();
         }
     }

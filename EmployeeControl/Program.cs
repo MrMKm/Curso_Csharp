@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -78,9 +79,10 @@ namespace EmployeeControl
 
                 Console.WriteLine($"Welcome! {Users.employee.Name} \n\n" +
                     $"1. Register hours \n" +
-                    $"2. See hours validates \n" +
-                    $"3. Send hours to validate \n" +
-                    $"4. Sign out \n\n" +
+                    $"2. See hours validated \n" +
+                    $"3. See hours registered \n" +
+                    $"4. Send hours to validate \n" +
+                    $"5. Sign out \n\n" +
                     $"Choose an option:");
 
                 int opc = Convert.ToInt32(Console.ReadLine());
@@ -104,15 +106,22 @@ namespace EmployeeControl
                         break;
 
                     case 3:
-                        Console.WriteLine("Hours sended to Supervisor");
+                        Console.WriteLine(Users.employee.PrintRegisteredHours());
+                        Console.ReadLine();
                         break;
 
                     case 4:
+                        Console.WriteLine("Hours sended to Supervisor");
+                        await Task.Delay(2000);
+                        break;
+
+                    case 5:
                         exit = true;
                         break;
 
                     default:
                         Console.WriteLine("Invalid Option, try again...");
+                        await Task.Delay(2000);
                         break;
                 }
             } while (!exit);
@@ -120,20 +129,22 @@ namespace EmployeeControl
 
         static async Task SupervisorMenu()
         {
+            int employeeID = 0;
             bool exit = false;
             do
             {
                 Console.Clear();
 
                 if (await CheckDate(Users.supervisor.EntryDate, Users.actualDate))
-                    Console.WriteLine($"Congratulations {Users.employee.Name} for being another year with us!!! :) \n\n");
+                    Console.WriteLine($"Congratulations {Users.supervisor.Name} for being another year with us!!! :) \n\n");
 
-                Console.WriteLine($"Welcome! {Users.employee.Name} \n\n" +
+                Console.WriteLine($"Welcome! {Users.supervisor.Name} \n\n" +
                     $"1. Validate employee hours \n" +
-                    $"2. Add new employee \n" +
+                    $"2. Add new employee to team \n" +
                     $"3. Edit an employee \n" +
-                    $"4. Delete an employee" +
-                    $"5. Sign out \n\n" +
+                    $"4. Delete an employee \n" +
+                    $"5. Add new employee to system \n" +
+                    $"6. Sign out \n\n" +
                     $"Choose an option:");
 
                 int opc = Convert.ToInt32(Console.ReadLine());
@@ -144,27 +155,60 @@ namespace EmployeeControl
                         Console.WriteLine("Employee ID: ");
                         Users.employee = Users.supervisor.GetEmployeeByID(Convert.ToInt32(Console.ReadLine()));
 
-                        Console.Clear();
-                        Console.WriteLine(Users.employee.PrintHours());
-                        Console.ReadLine();
-                        Console.WriteLine();
-                        Console.WriteLine("Validate hours?");
-
-                        if (Console.ReadLine() == "yes")
+                        if (Users.employee != null)
                         {
-                            Users.supervisor.ValidateHours(Users.employee.HoursRegistred, Users.employee.ID);
-                            Console.WriteLine("Hours validated");
-                            Console.WriteLine("\n\n");
+                            Console.Clear();
+                            Console.WriteLine(Users.employee.PrintRegisteredHours());
+                            Console.WriteLine("\nPress any key to continue...");
+                            Console.ReadLine();
+
+                            if (Users.employee.HoursRegistred.Any())
+                            {
+                                Console.WriteLine("Validate hours?");
+
+                                if (Console.ReadLine() == "yes")
+                                {
+                                    Users.supervisor.ValidateHours(Users.employee.HoursRegistred, Users.employee.ID);
+                                    Console.WriteLine("Hours validated");
+                                    Console.WriteLine("\n\n");
+                                    Console.WriteLine("\nPress any key to continue...");
+                                    Console.ReadLine();
+                                }
+                            }
                         }
+
+                        else
+                        {
+                            Console.WriteLine("Employee not found in system or your team...");
+                            Console.WriteLine("\n\n");
+                            Console.WriteLine("\nPress any key to continue...");
+                            Console.ReadLine();
+                        }
+
                         break;
 
                     case 2:
                         Console.WriteLine("Employee ID: ");
-                        Users.employee = Users.supervisor.GetEmployeeByID(Convert.ToInt32(Console.ReadLine()));
+                        employeeID = Convert.ToInt32(Console.ReadLine());
+                        Users.employee = 
+                            Users.employeeList.Find(e => e.ID.Equals(Convert.ToInt32(employeeID)));
 
-                        Users.supervisor.AddEmployee(Users.employee);
-                        Console.WriteLine("Employee added");
-                        Console.WriteLine("\n\n");
+                        if (Users.employee != null)
+                        {
+                            Users.supervisor.AddEmployeeToTeam(Users.employee);
+                            Console.WriteLine("Employee added to your team!");
+                            Console.WriteLine("\n\n");
+                            Console.WriteLine("\nPress any key to continue...");
+                            Console.ReadLine();
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("Employee not found in system or your team...");
+                            Console.WriteLine("\n\n");
+                            Console.WriteLine("\nPress any key to continue...");
+                            Console.ReadLine();
+                        }
 
                         break;
 
@@ -175,16 +219,29 @@ namespace EmployeeControl
                         Console.WriteLine("Employee ID: ");
                         Users.employee = Users.supervisor.GetEmployeeByID(Convert.ToInt32(Console.ReadLine()));
 
-                        Console.Clear();
+                        if (Users.employee != null)
+                        {
+                            Console.Clear();
 
-                        Console.WriteLine("New name: ");
-                        newName = Console.ReadLine();
-                        Console.WriteLine("New entry date:\nFormat(dd/mm/yyyy)");
-                        newDate = DateTime.ParseExact(Console.ReadLine(), "d", null);
+                            Console.WriteLine("New name: ");
+                            newName = Console.ReadLine();
+                            Console.WriteLine("New entry date:\nFormat(dd/mm/yyyy)");
+                            newDate = DateTime.ParseExact(Console.ReadLine(), "d", null);
 
-                        Users.supervisor.EditEmployee(newName, newDate, Users.employee.ID);
-                        Console.WriteLine("Employee updated");
-                        Console.WriteLine("\n\n");
+                            Users.supervisor.EditEmployee(newName, newDate, Users.employee.ID);
+                            Console.WriteLine("Employee updated");
+                            Console.WriteLine("\n\n");
+                            Console.WriteLine("\nPress any key to continue...");
+                            Console.ReadLine();
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("Employee not found in system or your team...");
+                            Console.WriteLine("\n\n");
+                            Console.WriteLine("\nPress any key to continue...");
+                            Console.ReadLine();
+                        }
 
                         break;
 
@@ -192,15 +249,43 @@ namespace EmployeeControl
                         Console.WriteLine("Employee ID: ");
                         Users.employee = Users.supervisor.GetEmployeeByID(Convert.ToInt32(Console.ReadLine()));
 
-                        Console.Clear();
+                        if (Users.employee != null)
+                        {
+                            Console.Clear();
 
-                        Users.supervisor.DeleteEmployee(Users.employee.ID);
-                        Console.WriteLine("Employee deleted");
-                        Console.WriteLine("\n\n");
+                            Users.supervisor.DeleteEmployee(Users.employee.ID);
+                            Users.employeeList.Remove(Users.employee);
+                            Console.WriteLine("Employee deleted");
+                            Console.WriteLine("\n\n");
+                            Console.WriteLine("\nPress any key to continue...");
+                            Console.ReadLine();
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("Employee not found in system or your team...");
+                            Console.WriteLine("\n\n");
+                            Console.WriteLine("\nPress any key to continue...");
+                            Console.ReadLine();
+                        }
 
                         break;
 
                     case 5:
+                        Console.Clear();
+
+                        Console.WriteLine("Employee name: ");
+                        newName = Console.ReadLine();
+
+                        Users.employee = Users.supervisor.AddEmployeeToSystem(newName);
+                        Users.employeeList.Add(Users.employee);
+                        Console.WriteLine("Employee added to system!");
+                        Console.WriteLine("\n\n");
+                        Console.WriteLine("\nPress any key to continue...");
+                        Console.ReadLine();
+                        break;
+
+                    case 6:
                         exit = true;
                         break;
 
@@ -211,57 +296,87 @@ namespace EmployeeControl
             } while (!exit);
         }
 
-        static async Task Menu()
+        static async Task<bool> Menu()
         {
-            Console.Clear();
-            Console.WriteLine("Actual date:\nFormat(dd/mm/yyyy)");
-            Users.actualDate = DateTime.ParseExact(Console.ReadLine(), "d", null);
+            bool exit = false;
 
-            Console.Clear();
-            Console.WriteLine("\t\tLog in\n\n" +
-                "Employee: 1 \nSupervisor: 2 \nExit: 3 \n\nChoose an option:");
-
-            int opc = Convert.ToInt32(Console.ReadLine());
-            Console.Clear();
-
-            int ID = 0;
-            string password = "";
-
-            switch(opc)
+            do
             {
-                case 1:
-                    Console.WriteLine("Employee ID: ");
-                    ID = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                Console.WriteLine("\t\tLog in\n\n" +
+                    "Employee: 1 \nSupervisor: 2 \nExit: 3 \n\nChoose an option:");
 
-                    Console.WriteLine("Password: ");
-                    password = Console.ReadLine();
+                int opc = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
 
-                    if (await CheckCredentials(ID, password, opc))
-                        await EmployeeMenu();
-                    break;
+                int ID = 0;
+                string password = "";
 
-                case 2:
-                    Console.WriteLine("Supervisor ID: ");
-                    ID = Convert.ToInt32(Console.ReadLine());
+                switch (opc)
+                {
+                    case 1:
+                        Console.WriteLine("Employee ID: ");
+                        ID = Convert.ToInt32(Console.ReadLine());
 
-                    Console.WriteLine("Password: ");
-                    password = Console.ReadLine();
+                        Console.WriteLine("Password: ");
+                        password = Console.ReadLine();
 
-                    if (await CheckCredentials(ID, password, opc))
-                        await SupervisorMenu();
-                    break;
+                        if (await CheckCredentials(ID, password, opc))
+                            await EmployeeMenu();
 
-                default:
-                    Console.WriteLine("Invalid Option, try again...");
-                    break;
-            }
+                        else
+                        {
+                            Console.WriteLine("Employee not found in system");
+                            Console.WriteLine("\n\n");
+                            Console.WriteLine("\nPress any key to continue...");
+                            Console.ReadLine();
+                        }
+
+                        break;
+
+                    case 2:
+                        Console.WriteLine("Supervisor ID: ");
+                        ID = Convert.ToInt32(Console.ReadLine());
+
+                        Console.WriteLine("Password: ");
+                        password = Console.ReadLine();
+
+                        if (await CheckCredentials(ID, password, opc))
+                            await SupervisorMenu();
+
+                        else
+                        {
+                            Console.WriteLine("Supervisor not found in system");
+                            Console.WriteLine("\n\n");
+                            Console.WriteLine("\nPress any key to continue...");
+                            Console.ReadLine();
+                        }
+
+                        break;
+
+                    case 3:
+                        exit = true;
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid Option, try again...");
+                        break;
+                }
+            } while (!exit);
+
+            return exit;
         }
 
         static async Task Main(string[] args)
         {
-            while(true)
+            Console.Clear();
+            Console.WriteLine("Actual date:\nFormat(dd/mm/yyyy)");
+            Users.actualDate = DateTime.ParseExact(Console.ReadLine(), "d", null); 
+
+            while (true)
             {
-                await (Menu());
+                if (await Menu())
+                    break;
             }
         }
     }

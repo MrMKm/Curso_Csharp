@@ -24,6 +24,8 @@ namespace EmployeeControl
                 {
                     employee.Hours.Add(hours);
                 }
+
+                employee.HoursRegistred.Clear();
             }
         }
 
@@ -34,9 +36,15 @@ namespace EmployeeControl
             return employee;
         }
 
-        public void AddEmployee(Employee employee)
+        public void AddEmployeeToTeam(Employee employee)
         {
             EmployeeList.Add(employee);
+        }
+
+        public Employee AddEmployeeToSystem(string name)
+        {
+            Employee employee = new Employee(name);
+            return employee;
         }
 
         public void EditEmployee(string employeeName, DateTime entryDate, int employeeID)
