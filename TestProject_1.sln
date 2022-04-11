@@ -23,11 +23,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReminderChallenge", "Remind
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParallelismChallenge", "ParallelismChallenge\ParallelismChallenge.csproj", "{87D45BD9-2D2B-4F97-BD5C-3FBC29B5C259}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POO", "POO\POO.csproj", "{9A2E2633-9470-4793-88C5-B0626B9BE887}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POO", "POO\POO.csproj", "{9A2E2633-9470-4793-88C5-B0626B9BE887}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankApp", "BankApp\BankApp.csproj", "{D488EAB4-F50C-4576-8D5E-B92122A5E272}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankApp", "BankApp\BankApp.csproj", "{D488EAB4-F50C-4576-8D5E-B92122A5E272}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeControl", "EmployeeControl\EmployeeControl.csproj", "{56E7E517-DFBE-4C1C-9323-71E32DB4DEE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeControl", "EmployeeControl\EmployeeControl.csproj", "{56E7E517-DFBE-4C1C-9323-71E32DB4DEE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ", "LINQ\LINQ.csproj", "{7DF98238-94A7-4E45-9AF4-4639A2994751}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQExercise", "LINQExercise\LINQExercise.csproj", "{D83FE206-8EC4-4DDC-BB2C-EC162F654A11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +91,14 @@ Global
 		{56E7E517-DFBE-4C1C-9323-71E32DB4DEE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56E7E517-DFBE-4C1C-9323-71E32DB4DEE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56E7E517-DFBE-4C1C-9323-71E32DB4DEE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DF98238-94A7-4E45-9AF4-4639A2994751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DF98238-94A7-4E45-9AF4-4639A2994751}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DF98238-94A7-4E45-9AF4-4639A2994751}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DF98238-94A7-4E45-9AF4-4639A2994751}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D83FE206-8EC4-4DDC-BB2C-EC162F654A11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D83FE206-8EC4-4DDC-BB2C-EC162F654A11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D83FE206-8EC4-4DDC-BB2C-EC162F654A11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D83FE206-8EC4-4DDC-BB2C-EC162F654A11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
