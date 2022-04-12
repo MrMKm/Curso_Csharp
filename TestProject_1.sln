@@ -29,9 +29,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankApp", "BankApp\BankApp.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeControl", "EmployeeControl\EmployeeControl.csproj", "{56E7E517-DFBE-4C1C-9323-71E32DB4DEE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ", "LINQ\LINQ.csproj", "{7DF98238-94A7-4E45-9AF4-4639A2994751}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LINQ", "LINQ\LINQ.csproj", "{7DF98238-94A7-4E45-9AF4-4639A2994751}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQExercise", "LINQExercise\LINQExercise.csproj", "{D83FE206-8EC4-4DDC-BB2C-EC162F654A11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LINQExercise", "LINQExercise\LINQExercise.csproj", "{D83FE206-8EC4-4DDC-BB2C-EC162F654A11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQExercise_2", "LINQExercise_2\LINQExercise_2.csproj", "{EADF6E56-7907-451E-8C72-CE76BCCDAA33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,10 @@ Global
 		{D83FE206-8EC4-4DDC-BB2C-EC162F654A11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D83FE206-8EC4-4DDC-BB2C-EC162F654A11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D83FE206-8EC4-4DDC-BB2C-EC162F654A11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EADF6E56-7907-451E-8C72-CE76BCCDAA33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EADF6E56-7907-451E-8C72-CE76BCCDAA33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EADF6E56-7907-451E-8C72-CE76BCCDAA33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EADF6E56-7907-451E-8C72-CE76BCCDAA33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
