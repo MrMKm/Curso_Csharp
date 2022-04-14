@@ -116,13 +116,27 @@ namespace eShop
             var orders = _productOrderRepository.GetPurchaseOrders()
                 .Where(o => o.Date.Date >= DateTime.Now.Date.AddDays(-7) && o.Status.Equals(OrderStatus.Paid))
                 .ToList();
+
+            foreach (var order in orders)
+            {
+                Console.WriteLine(order.ToString());
+                foreach (var product in order.PurchasedProducts)
+                    Console.WriteLine(product.ToString());
+                Console.WriteLine("**********************************");
+            }
         }
 
         public static void XboxPurchases()
         {
-            var orders = _productOrderRepository.GetPurchaseOrders()
+            var groups = _productOrderRepository.GetPurchaseOrders()
                 .GroupBy(o => o.PurchasedProducts.FindAll(p => p.Name.Contains("Xbox")))
                 .ToList();
+
+            foreach (var group in groups)
+            {
+                foreach (var product in group.Key)
+                    Console.WriteLine(product.ToString());
+            }
         }
 
         public static void PendingPurcharses()
@@ -130,12 +144,19 @@ namespace eShop
             var orders = _productOrderRepository.GetPurchaseOrders()
                 .Where(o => o.Status.Equals(OrderStatus.Pending) && o.ProviderID.Equals(1))
                 .ToList();
+
+            foreach (var order in orders)
+            {
+                Console.WriteLine(order.ToString());
+                foreach (var product in order.PurchasedProducts)
+                    Console.WriteLine(product.ToString());
+                Console.WriteLine("**********************************");
+            }
         }
 
         public static void MostPurchasedProduct()
         {
-            var product = _productOrderRepository.GetPurchaseOrders()
-                .Where(o => o.Status.Equals(OrderStatus.Paid))
+            Nullable<int> productID = _productOrderRepository.GetPurchaseOrders()
                 .SelectMany(o => o.PurchasedProducts)
                 .GroupBy(p => p.ID)
                 .Select(g => new
@@ -145,6 +166,15 @@ namespace eShop
                 })
                 .OrderByDescending(g => g.Sum)
                 .FirstOrDefault().ProductID;
+
+            var product = _productOrderRepository.GetPurchaseOrders()
+                .GroupBy(o => o.PurchasedProducts.FirstOrDefault(p => p.ID.Equals((int)productID)))
+                .FirstOrDefault();
+
+            if (product.Key == null)
+                throw new ApplicationException("Product with ID not found");
+
+            Console.WriteLine(product.Key.ToString());
         }
 
         public static void ReportsMenu()

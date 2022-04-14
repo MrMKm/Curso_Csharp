@@ -178,7 +178,7 @@ namespace eShop
             do
             {
                 Console.Clear();
-                Console.WriteLine("\t\t Reports \n\n" +
+                Console.WriteLine("\t\t Purchase Menu \n\n" +
                     "1. Purcharse \n" +
                     "2. View all purcharse order \n" +
                     "3. View purcharse order \n" +
