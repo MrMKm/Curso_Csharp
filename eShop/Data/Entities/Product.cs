@@ -104,5 +104,10 @@ namespace Data.Entities
         {
             this.Stock -= Stock;
         }
+
+        public int GetAvailableStock()
+        {
+            return this.Stock;
+        }
     }
 }

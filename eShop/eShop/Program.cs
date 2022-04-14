@@ -13,7 +13,7 @@ namespace eShop
             eShopConsole console = new eShopConsole();
 
             while (true)
-                if (console.Menu())
+                if (console.PrincipalMenu())
                     break;
         }
     }

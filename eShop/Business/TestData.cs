@@ -50,5 +50,7 @@ namespace Business
             new Provider(3, "Company 3", "Fake Street #937", "5511234567", "fake@fake.com", "CDMX"),
             new Provider(4, "Company 4", "Fake Street #938", "3561234567", "fake@fake.com", "Michoacan")
         };
+
+        public static string AdminPassword = "password";
     }
 }

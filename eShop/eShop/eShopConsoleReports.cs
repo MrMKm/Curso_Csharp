@@ -125,7 +125,7 @@ namespace eShop
                 .ToList();
         }
 
-        public static void PendingPurcharse()
+        public static void PendingPurcharses()
         {
             var orders = _productOrderRepository.GetPurchaseOrders()
                 .Where(o => o.Status.Equals(OrderStatus.Pending) && o.ProviderID.Equals(1))
@@ -190,28 +190,28 @@ namespace eShop
 
                     case "4":
                         Console.Clear();
-                        //DeparmentsAndSubDepartments();
+                        LastPaidPurchases();
                         Console.WriteLine("\nPress any key to continue...");
                         Console.ReadLine();
                         break;
 
                     case "5":
                         Console.Clear();
-                        //DeparmentsAndSubDepartments();
+                        XboxPurchases();
                         Console.WriteLine("\nPress any key to continue...");
                         Console.ReadLine();
                         break;
 
                     case "6":
                         Console.Clear();
-                        //DeparmentsAndSubDepartments();
+                        PendingPurcharses();
                         Console.WriteLine("\nPress any key to continue...");
                         Console.ReadLine();
                         break;
 
                     case "7":
                         Console.Clear();
-                        //DeparmentsAndSubDepartments();
+                        MostPurchasedProduct();
                         Console.WriteLine("\nPress any key to continue...");
                         Console.ReadLine();
                         break;

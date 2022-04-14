@@ -1,4 +1,5 @@
-﻿using Business.Services;
+﻿using Business;
+using Business.Services;
 using Business.Services.Implementations;
 using Business.Services.Interfaces;
 using Data.Entities;
@@ -18,6 +19,7 @@ namespace eShop
         private static SubDepartmentService _subDepartmentRepository;
         private static ProviderService _providerRepository;
         private static ProductOrderService _productOrderRepository;
+        private static CustomerOrderService _customerOrderRepository;
 
         public void AddProduct()
         {
@@ -178,14 +180,14 @@ namespace eShop
             }
         }
 
-        public bool Menu()
+        public bool AdminMenu()
         {
             bool exit = false;
 
             do
             {
                 Console.Clear();
-                Console.WriteLine("\t\t eShop \n\n" +
+                Console.WriteLine("\t\t eShop ***Admin*** \n\n" +
                     "1. Add product \n" +
                     "2. Update product \n" +
                     "3. View product \n" +
@@ -193,7 +195,7 @@ namespace eShop
                     "5. Delete product \n" +
                     "6. Reports \n" +
                     "7. Purchase Orders \n" +
-                    "8. Exit \n\n");
+                    "8. Sign up \n\n");
                 Console.WriteLine("Choose an option");
 
                 switch (Console.ReadLine())
@@ -258,6 +260,115 @@ namespace eShop
             return exit;
         }
 
+        public bool CustomerMenu()
+        {
+            bool exit = false;
+
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("\t\t eShop ***Customer*** \n\n" +
+                    "1. Purchase \n" +
+                    "2. View an order \n" +
+                    "3. View all orders \n" +
+                    "4. Cancel order \n" +
+                    "5. Sign up \n\n");
+                Console.WriteLine("Choose an option");
+
+                switch (Console.ReadLine())
+                {
+                    case "1":
+                        Console.Clear();
+                        CustomerPurcharse();
+                        Console.WriteLine("\nPress any key to continue...");
+                        Console.ReadLine();
+                        break;
+
+                    case "2":
+                        Console.Clear();
+                        ShowCustomerOrder();
+                        Console.WriteLine("\nPress any key to continue...");
+                        Console.ReadLine();
+                        break;
+
+                    case "3":
+                        Console.Clear();
+                        ShowCustomerOrders();
+                        Console.WriteLine("\nPress any key to continue...");
+                        Console.ReadLine();
+                        break;
+
+                    case "4":
+                        Console.Clear();
+                        CancelCustomerOrder();
+                        Console.WriteLine("\nPress any key to continue...");
+                        Console.ReadLine();
+                        break;
+
+                    case "5":
+                        exit = true;
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid option, try again...");
+                        Console.WriteLine("\nPress any key to continue...");
+                        Console.ReadLine();
+                        break;
+                }
+            } while (!exit);
+
+            return exit;
+        }
+
+        public bool PrincipalMenu()
+        {
+            bool exit = false;
+
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("\t\t eShop \n\n" +
+                    "1. Customer \n" +
+                    "2. Admin \n" +
+                    "3. Exit \n\n");
+                Console.WriteLine("Choose an option");
+
+                switch (Console.ReadLine())
+                {
+                    case "1":
+                        Console.Clear();
+                        CustomerMenu();
+                        break;
+
+                    case "2":
+                        Console.Clear();
+                        Console.WriteLine("Password: ");
+                        if(Console.ReadLine() == TestData.AdminPassword)
+                            AdminMenu();
+
+                        else
+                        {
+                            Console.WriteLine("Wrong password");
+                            Console.WriteLine("\nPress any key to continue...");
+                            Console.ReadLine();
+                        }
+                        break;
+
+                    case "3":
+                        exit = true;
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid option, try again...");
+                        Console.WriteLine("\nPress any key to continue...");
+                        Console.ReadLine();
+                        break;
+                }
+            } while (!exit);
+
+            return exit;
+        }
+
         public eShopConsole()
         {
             _productRepository = new ProductService();
@@ -265,6 +376,7 @@ namespace eShop
             _subDepartmentRepository = new SubDepartmentService();
             _providerRepository = new ProviderService();
             _productOrderRepository = new ProductOrderService();
+            _customerOrderRepository = new CustomerOrderService();
         }
     }
 }
