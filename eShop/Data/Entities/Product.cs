@@ -16,10 +16,9 @@ namespace Data.Entities
         public string Name { get; private set; }
 
         [Required(ErrorMessage = "Stock is required")]
-        public int Stock { get; private set; } = 1;
+        public int Stock { get; set; }
 
         [Required(ErrorMessage = "Price is required")]
-        [DataType(DataType.Currency)]
         public decimal Price { get; private set; }
 
         [Required(ErrorMessage = "SKU is required")]
@@ -34,13 +33,17 @@ namespace Data.Entities
         [MinLength(1, ErrorMessage = "Brand is required")]
         public string Brand { get; private set; }
 
-        public Nullable<int> subDepartmentID { get; private set; } = null;
+        public int subDepartmentID { get; private set; }
+        public int DepartmentID { get; private set; }
+
+        public Department Department { get; private set; }
+        public SubDepartment SubDepartment { get; private set; }
 
 
         public Product() { }
 
         public Product(int ID, string Name, decimal Price, string Description, 
-            string Brand, string SKU, int subDepartmentID) 
+            string Brand, string SKU, int Stock, int DepartmentID, int subDepartmentID) 
         {
             if (Price < 0)
                 throw new InvalidOperationException("Price can't be lower than 0");
@@ -50,11 +53,13 @@ namespace Data.Entities
 
             this.ID = ID;
             this.Name = Name;
+            this.Price = Price;
             this.Description = Description;
             this.Brand = Brand;
             this.SKU = SKU;
             this.Stock = Stock;
             this.subDepartmentID = subDepartmentID;
+            this.DepartmentID = DepartmentID;
         }
 
         public void Update(string Name, decimal Price, string Description, string Brand, int Stock)
@@ -76,7 +81,28 @@ namespace Data.Entities
                 $"Brand: {this.Brand} \n" +
                 $"SKU: {this.SKU} \n" +
                 $"Stock: {this.Stock} \n" +
+                $"Department ID: {this.DepartmentID} \n" +
                 $"Sub department ID: {this.subDepartmentID} \n";
+        }
+
+        public void SetDepartment(Department department)
+        {
+            this.Department = department;
+        }
+
+        public void SetSubDepartment(SubDepartment subDepartment)
+        {
+            this.SubDepartment = subDepartment;
+        }
+
+        public void AddStock(int Stock)
+        {
+            this.Stock += Stock;
+        }
+
+        public void RemoveStock(int Stock)
+        {
+            this.Stock -= Stock;
         }
     }
 }

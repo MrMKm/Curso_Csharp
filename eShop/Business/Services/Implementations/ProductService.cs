@@ -2,6 +2,7 @@
 using Data.Entities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,11 +11,7 @@ namespace Business.Services.Implementations
 {
     public class ProductService : IProductService
     {
-        public static List<Product> ProductsList = new List<Product>()
-        {
-            new Product(1, "Orange juice", 10.99m, "1L", "LALA", "0000001", 1),
-            new Product(2, "Apple juice", 15.99m, "1L", "DelValle", "0000002", 1)
-        };
+        private List<Product> ProductsList = TestData.ProductsList;
 
         public void CreateProduct(Product product)
         {
@@ -39,11 +36,15 @@ namespace Business.Services.Implementations
 
         public void UpdateProduct(Product product)
         {
+            Validation.ObjectValidator(product);
+
             if (ProductsList.Remove(product))
                 CreateProduct(product);
 
             else
                 throw new ApplicationException("Product not found");
+
+            ProductsList = ProductsList.OrderBy(p => p.ID).ToList();
         }
     }
 }

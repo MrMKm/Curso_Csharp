@@ -9,6 +9,7 @@ namespace Data.Entities
 {
     public class Department
     {
+        [Required]
         public int ID { get; private set; }
 
         [Required(ErrorMessage = "Department name is required")]

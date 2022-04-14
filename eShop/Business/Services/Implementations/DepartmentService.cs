@@ -10,12 +10,7 @@ namespace Business.Services.Implementations
 {
     public class DepartmentService : IDepartmentService
     {
-        public static List<Department> DepartmentsList = new List<Department>()
-        {
-            new Department(1, "Alimentos", SubDepartmentService.foodSubDepartments, ProductService.ProductsList),
-            new Department(2, "Muebles", SubDepartmentService.mueblesSubDepartments, null),
-            new Department(3, "Electrónica", SubDepartmentService.electronicSubDepartments, null)
-        };
+        private List<Department> DepartmentsList = TestData.DepartmentsList;
 
         public void CreateDepartment(Department department)
         {

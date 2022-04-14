@@ -10,30 +10,10 @@ namespace Business.Services.Implementations
 {
     public class SubDepartmentService : ISubDepartmentService
     {
-        public static List<SubDepartment> subDepartmentsList = new List<SubDepartment>();
-
-        public static List<SubDepartment> foodSubDepartments = new List<SubDepartment>()
-        {
-            new SubDepartment(1, "Juices", 1),
-            new SubDepartment(2, "Frutas", 1),
-            new SubDepartment(3, "Verduras", 1)
-        };
-        public static List<SubDepartment> mueblesSubDepartments = new List<SubDepartment>()
-        {
-            new SubDepartment(4, "Salas", 2)
-        };
-        public static List<SubDepartment> electronicSubDepartments = new List<SubDepartment>()
-        {
-            new SubDepartment(5, "TVs", 3),
-            new SubDepartment(6, "Audio", 3),
-            new SubDepartment(7, "Videojuegos", 3)
-        };
+        private List<SubDepartment> subDepartmentsList = TestData.subDepartmentsList;
 
         public SubDepartmentService()
         {
-            subDepartmentsList.AddRange(foodSubDepartments);
-            subDepartmentsList.AddRange(mueblesSubDepartments);
-            subDepartmentsList.AddRange(electronicSubDepartments);
         }
 
         public void CreateSubDepartment(SubDepartment subDepartment)

@@ -9,6 +9,7 @@ namespace Data.Entities
 {
     public class SubDepartment
     {
+        [Required]
         public int ID { get; private set; }
 
         [Required(ErrorMessage = "Sub department name is required")]
@@ -18,6 +19,7 @@ namespace Data.Entities
         [Required(ErrorMessage = "Department ID is required")]
         public int DepartmentID { get; private set; }
 
+        public Department Department { get; private set; }
 
 
         public SubDepartment() { }
@@ -38,6 +40,11 @@ namespace Data.Entities
                 $"\tID: {this.ID} \n" +
                 $"\tName: {this.Name} \n" +
                 $"\tDepartment ID: {this.DepartmentID} \n";
+        }
+
+        public void SetDepartment(Department department)
+        {
+            this.Department = department;
         }
     }
 }
